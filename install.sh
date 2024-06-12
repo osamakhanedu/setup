@@ -70,5 +70,8 @@ sudo snap install vlc
 sudo snap install intellij-idea-community --classic
 
 
+#  Get this out of snap
+sudo snap install pinta
+
 # You may need to log out and back in for changes to take effect
 echo "Installation completed. Please restart your system."
