@@ -76,5 +76,9 @@ sudo snap install pinta
 # install dbeaver ce
 sudo snap install dbeaver-ce
 
+
+# install brave 
+sudo snap install brave
+
 # You may need to log out and back in for changes to take effect
 echo "Installation completed. Please restart your system."
