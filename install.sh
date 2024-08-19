@@ -19,26 +19,26 @@ sudo apt install curl wget
 #sudo apt-get install code -y
 
 #install snap package vscode
-sudo snap install code --classic
+# sudo snap install code --classic
 
 
 
 # Install Google Chrome
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt-get install -f -y
-rm google-chrome-stable_current_amd64.deb
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo dpkg -i google-chrome-stable_current_amd64.deb
+# sudo apt-get install -f -y
+# rm google-chrome-stable_current_amd64.deb
 
 
 # Install Zsh and Oh My Zsh
-sudo apt-get install zsh -y
+sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Make Zsh the default shell
 chsh -s $(which zsh)
 
 # Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 
 # # Load NVM
 # export NVM_DIR="$HOME/.nvm"

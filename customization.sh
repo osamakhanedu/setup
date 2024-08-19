@@ -17,4 +17,4 @@ sudo apt install gnome-tweaks
 
 
 # gnome setting to open new window in center
-gsettings set org.gnome.mutter center-new-windows true
+# gsettings set org.gnome.mutter center-new-windows true
