@@ -19,7 +19,7 @@ sudo apt install curl wget
 #sudo apt-get install code -y
 
 #install snap package vscode
-# sudo snap install code --classic
+sudo snap install code --classic
 
 
 
@@ -31,18 +31,15 @@ sudo apt install curl wget
 
 
 # Install Zsh and Oh My Zsh
-sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#sudo apt install zsh
+#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Make Zsh the default shell
-chsh -s $(which zsh)
+#chsh -s $(which zsh)
 
 # Install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-
-# # Load NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
 
 
 
@@ -53,7 +50,7 @@ sudo snap install insomnia
 sudo snap install vlc
 
 # Install IntelliJ IDEA Community Edition
-sudo snap install intellij-idea-community --classic
+#sudo snap install intellij-idea-community --classic
 
 
 #  Get this out of snap

@@ -16,5 +16,6 @@ sudo apt install gnome-shell-extension-manager
 sudo apt install gnome-tweaks
 
 
-# gnome setting to open new window in center
-# gsettings set org.gnome.mutter center-new-windows true
+# minimize behavior on icon click
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
