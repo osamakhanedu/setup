@@ -1,22 +1,38 @@
 #!/bin/bash
 
-# Create directory for custom fonts
-mkdir -p ~/.local/share/fonts
+# Exit on error
+set -e
 
-# Download and install Cascadia Mono font
-cd /tmp
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip
-unzip -o CascadiaCode.zip -d CascadiaFont
-cp CascadiaFont/*.ttf ~/.local/share/fonts
-rm -rf CascadiaCode.zip CascadiaFont
+# Font URL (latest JetBrains Mono from GitHub)
+FONT_URL="https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip"
+TMP_DIR="/tmp/jetbrains-mono"
+FONT_DIR="$HOME/.local/share/fonts"
 
+# Create temp and font directories
+mkdir -p "$TMP_DIR"
+mkdir -p "$FONT_DIR"
 
-# Download and install iA Writer Mono font
-# wget -O iafonts.zip https://github.com/iaolo/iA-Fonts/archive/refs/heads/master.zip
-# unzip -o iafonts.zip -d iaFonts
-# cp iaFonts/iA-Fonts-master/iA\ Writer\ Mono/Static/iAWriterMonoS-*.ttf ~/.local/share/fonts
-# rm -rf iafonts.zip iaFonts
+echo "🔽 Downloading JetBrains Mono..."
+wget -qO "$TMP_DIR/jetbrains-mono.zip" "$FONT_URL"
 
-# Update font cache
-fc-cache -f -v
-cd -
+echo "📦 Extracting font files..."
+unzip -q "$TMP_DIR/jetbrains-mono.zip" -d "$TMP_DIR"
+
+echo "📁 Installing fonts to $FONT_DIR..."
+cp "$TMP_DIR"/JetBrainsMono-*/ttf/*.ttf "$FONT_DIR"
+
+echo "🔄 Updating font cache..."
+fc-cache -f -v > /dev/null
+
+# Set JetBrains Mono as default in GNOME Terminal
+echo "🎨 Setting JetBrains Mono as the GNOME Terminal font..."
+
+PROFILE_ID=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')
+PROFILE_PATH="org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$PROFILE_ID/"
+
+# Enable custom font usage
+gsettings set "$PROFILE_PATH" use-system-font false
+gsettings set "$PROFILE_PATH" font 'JetBrains Mono 13'
+
+echo "✅ JetBrains Mono installed and set as default terminal font."
+
